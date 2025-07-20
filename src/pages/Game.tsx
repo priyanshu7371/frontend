@@ -23,27 +23,7 @@ interface Task {
   time: number;
 }
 
-function getRandomDuration(type: 'mental' | 'physical') {
-  if (type === 'mental') {
-    // 2-3 minutes
-    return (Math.floor(Math.random() * 2) + 2) * 60;
-  } else {
-    // 4-5 minutes
-    return (Math.floor(Math.random() * 2) + 4) * 60;
-  }
-}
-
 // Remove unused initialMentalTasks and initialPhysicalTasks to fix linter errors
-
-const overlayStyle: React.CSSProperties = {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  width: '100vw',
-  height: '100vh',
-  background: 'rgba(12, 16, 24, 0.72)',
-  zIndex: -1,
-};
 
 const baseBoxStyle = { minWidth: 260 };
 const blueShadow = { boxShadow: '0 4px 24px 0 rgba(79,138,255,0.18)' };
@@ -109,17 +89,6 @@ const mentalTasks = todayTasks
       }))
   : [];
 
-const parseMarkdownTable = (markdown: string) => {
-  // Extract the first table in the markdown
-  const tableMatch = markdown.match(/\|[\s\S]+?\|---[\s\S]+?\|\s*\n([\s\S]+?)(\n#|$)/);
-  if (!tableMatch) return [];
-  const rows = tableMatch[1].trim().split('\n').filter(Boolean);
-  return rows.map((row: string) => {
-    const cols = row.split('|').map((c: string) => c.trim()).filter(Boolean);
-    return cols;
-  });
-};
-
 const Game = () => {
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
   const { gold, addCoins, gainExp, character } = useGame();
@@ -151,11 +120,6 @@ const Game = () => {
       return () => clearTimeout(timer);
     }
   }, [showLockMsg]);
-
-  const handleLevelUp = () => {
-    setLevelUpMsg(true);
-    setTimeout(() => setLevelUpMsg(false), 2500);
-  };
 
   // Mark a set as done and update state
   const handleComplete = (completed: boolean | 'proceed') => {

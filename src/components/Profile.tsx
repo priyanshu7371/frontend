@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useGame } from '../context/GameContext';
 
 const Profile: React.FC = () => {

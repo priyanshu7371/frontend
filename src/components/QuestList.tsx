@@ -1,5 +1,3 @@
-import React from 'react';
-
 const QuestList = () => (
   <div className="quest-list">
     <h2>Active Quests</h2>

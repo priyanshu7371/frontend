@@ -33,11 +33,10 @@ const MainTaskBox: React.FC<MainTaskBoxProps> = ({ task, onComplete }) => {
   const [showPrompt, setShowPrompt] = useState(false);
   const [showCompleted, setShowCompleted] = useState(false);
   const [currentSet, setCurrentSet] = useState(1);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const prevTaskRef = useRef<Task | null>(null);
   const { addCoins } = useGame();
-  const [titleAnim, setTitleAnim] = useState(false);
-  const [contentAnim, setContentAnim] = useState(false);
+  // Removed unused: titleAnim, contentAnim, handleTitleClick
 
   useEffect(() => {
     if (task && task.duration && task !== prevTaskRef.current) {
@@ -72,17 +71,13 @@ const MainTaskBox: React.FC<MainTaskBoxProps> = ({ task, onComplete }) => {
 
   useEffect(() => {
     if (task) {
-      setTitleAnim(false);
-      setTimeout(() => setTitleAnim(true), 10);
-      setTimeout(() => setTitleAnim(false), 300);
+      // Removed unused: titleAnim, contentAnim
     }
   }, [task]);
 
   useEffect(() => {
     if (task) {
-      setContentAnim(false);
-      setTimeout(() => setContentAnim(true), 10);
-      setTimeout(() => setContentAnim(false), 350);
+      // Removed unused: titleAnim, contentAnim
     }
   }, [task]);
 
