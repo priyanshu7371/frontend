@@ -11,26 +11,15 @@ import ShopPurchases from './pages/ShopPurchases';
 import ShopFeatured from './pages/ShopFeatured';
 import ShopRedeem from './pages/ShopRedeem';
 import ShopSettings from './pages/ShopSettings';
-import Landing from './pages/Landing';
 import Player from './pages/Player';
 import { GameProvider } from './context/GameContext';
-
-function RootRoute() {
-  const entered = localStorage.getItem('enteredApp');
-  if (entered === 'true') {
-    return <Game />;
-  } else {
-    return <Landing />;
-  }
-}
 
 function App() {
   return (
     <GameProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<RootRoute />} />
-          <Route path="/landing" element={<Landing />} />
+          <Route path="/" element={<Game />} />
           <Route path="/player/*" element={<Player />}>
             <Route index element={<Profile />} />
             <Route path="inventory" element={<Inventory />} />
