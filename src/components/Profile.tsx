@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useGame } from '../context/GameContext';
 
 const Profile: React.FC = () => {
-  const navigate = useNavigate();
   const { character, gold, setCharacterName } = useGame();
   const [editing, setEditing] = useState(false);
   const [nameInput, setNameInput] = useState(character.name || '');
