@@ -2,14 +2,14 @@ import React from 'react';
 import { useGame } from '../context/GameContext';
 
 const Inventory: React.FC = () => {
-  const { inventory, character, equipItem, useItem, gold } = useGame();
+  const { inventory, useItem } = useGame();
 
   return (
     <div style={{ width: '100%', maxWidth: 480, margin: '32px auto', background: 'rgba(32,38,60,0.93)', borderRadius: 14, boxShadow: '0 2px 12px #4f8cff11', padding: 24, border: '1.5px solid #3a4660' }}>
       <h2 style={{ fontSize: 18, fontWeight: 800, color: '#8faeea', marginBottom: 12 }}>Inventory</h2>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(80px, 1fr))', gap: 16 }}>
         {inventory.length === 0 && <div style={{ color: '#b4bcd0', gridColumn: 'span 4', textAlign: 'center', fontSize: 16, padding: 16 }}><span style={{ fontSize: 24 }}>📦</span><br />No items yet.</div>}
-        {inventory.map((item, idx) => (
+        {inventory.map((item) => (
           <div key={item.id} style={{
             background: 'linear-gradient(120deg, #181e2a 70%, #232a3a 100%)',
             border: '1.5px solid #4f8cff',

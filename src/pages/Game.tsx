@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Sidebar from '../components/Sidebar';
 import TaskBox from '../components/TaskBox';
 import MainTaskBox from '../components/MainTaskBox';
 import { useGame } from '../context/GameContext';
@@ -200,8 +198,6 @@ const Game = () => {
     />
   );
 
-  const navigate = useNavigate();
-
   // Remove useEffect that checks for user authentication/profile completion
   // Remove setProfileData, setShowProfilePopup, setProfileChecked, and handleProfileComplete if only used for auth/profile
 
@@ -343,7 +339,6 @@ const Game = () => {
             <MainTaskBox task={selectedTask} onComplete={handleComplete} />
           </div>
         </div>
-        <Sidebar />
       </div>
       {/* Remove the old large text and its box section entirely for redesign */}
     </div>

@@ -17,7 +17,6 @@ interface Task {
 interface MainTaskBoxProps {
   task: Task | null;
   onComplete?: (completed: boolean | 'proceed') => void;
-  onLevelUp?: () => void;
 }
 
 const mainTaskBoxClass = 'main-task-box-responsive';
@@ -28,7 +27,7 @@ const formatTime = (seconds: number) => {
   return `${m}:${s.toString().padStart(2, '0')}`;
 };
 
-const MainTaskBox: React.FC<MainTaskBoxProps> = ({ task, onComplete, onLevelUp }) => {
+const MainTaskBox: React.FC<MainTaskBoxProps> = ({ task, onComplete }) => {
   const [timer, setTimer] = useState<number>(0);
   const [isRunning, setIsRunning] = useState(false);
   const [showPrompt, setShowPrompt] = useState(false);
@@ -40,7 +39,6 @@ const MainTaskBox: React.FC<MainTaskBoxProps> = ({ task, onComplete, onLevelUp }
   const [titleAnim, setTitleAnim] = useState(false);
   const [contentAnim, setContentAnim] = useState(false);
 
-  // Reset timer, set, and prompt when task changes
   useEffect(() => {
     if (task && task.duration && task !== prevTaskRef.current) {
       setTimer(task.duration);
@@ -53,7 +51,6 @@ const MainTaskBox: React.FC<MainTaskBoxProps> = ({ task, onComplete, onLevelUp }
     }
   }, [task]);
 
-  // Countdown logic (no exp)
   useEffect(() => {
     if (isRunning && timer > 0) {
       intervalRef.current = setInterval(() => {
@@ -73,7 +70,6 @@ const MainTaskBox: React.FC<MainTaskBoxProps> = ({ task, onComplete, onLevelUp }
     return () => {};
   }, [isRunning, timer, task]);
 
-  // Trigger animation on task change
   useEffect(() => {
     if (task) {
       setTitleAnim(false);
@@ -82,7 +78,6 @@ const MainTaskBox: React.FC<MainTaskBoxProps> = ({ task, onComplete, onLevelUp }
     }
   }, [task]);
 
-  // Trigger content animation on task change
   useEffect(() => {
     if (task) {
       setContentAnim(false);
@@ -91,37 +86,26 @@ const MainTaskBox: React.FC<MainTaskBoxProps> = ({ task, onComplete, onLevelUp }
     }
   }, [task]);
 
-  // Also trigger animation on click
-  const handleTitleClick = () => {
-    setTitleAnim(false);
-    setTimeout(() => setTitleAnim(true), 10);
-    setTimeout(() => setTitleAnim(false), 300);
-  };
-
   const handlePrompt = (completed: boolean) => {
     if (completed) {
-      // If more sets remain, increment set and reset timer
       if (task && typeof task.sets === 'number' && currentSet < task.sets) {
         setCurrentSet(cs => cs + 1);
         setTimer(task.time ? task.time * 60 : 0);
         setShowPrompt(false);
         setIsRunning(false);
       } else {
-        // All sets done
         setShowCompleted(true);
         setShowPrompt(false);
         if (onComplete) onComplete(true);
         if (task && typeof task.coins === 'number') addCoins(task.coins);
       }
     } else {
-      // Try again: reset timer for current set
       setTimer(task && task.time ? task.time * 60 : 0);
       setShowPrompt(false);
       setIsRunning(false);
     }
   };
 
-  // Always render the same box, just change content
   return (
     <div style={{ position: 'relative' }}>
       <style>{`

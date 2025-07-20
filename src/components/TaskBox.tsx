@@ -29,21 +29,16 @@ const taskBoxClass = 'task-box-responsive';
 const clickSoundUrl = clickSound;
 
 const TaskBox: React.FC<TaskBoxProps> = ({ tasks, style, onTaskClick, selectedTask, backgroundImage }) => {
-  const [visible, setVisible] = useState(true);
   const ulRef = useRef<HTMLUListElement>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [clickedIdx, setClickedIdx] = useState<number | null>(null);
-
-  // Get current day as first 3 letters, capitalized
-  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const today = days[new Date().getDay()];
 
   // Filter tasks for today only
   const filteredTasks = tasks;
 
   // Animate on mount/unmount
   useEffect(() => {
-    setVisible(true);
+    // No-op for now
   }, [tasks]);
 
   const handleTaskClick = (task: Task, idx: number) => {

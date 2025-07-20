@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const icons = {
   profile: (
@@ -28,7 +28,6 @@ const navLinks = [
 ];
 
 const Player: React.FC = () => {
-  const location = useLocation();
   return (
     <div style={{ display: 'flex', minHeight: '100vh', width: '100vw', background: 'radial-gradient(ellipse at 60% 20%, #232a3a 0%, #181e2a 100%)', color: '#eaf0ff', fontFamily: '"Segoe UI", "Noto Sans JP", "Inter", Arial, sans-serif' }}>
       {/* Sidebar */}
