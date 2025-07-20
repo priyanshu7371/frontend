@@ -1,0 +1,105 @@
+{
+  "tasks": [
+    { "id": "pushups", "name": "Pushups", "type": "physical", "defaultQuantity": 4, "defaultSets": 2, "coins": 10 },
+    { "id": "plank", "name": "Plank (sec)", "type": "physical", "defaultQuantity": 20, "defaultSets": 2, "coins": 8 },
+    { "id": "squats", "name": "Squats", "type": "physical", "defaultQuantity": 8, "defaultSets": 2, "coins": 12 },
+    { "id": "burpees", "name": "Burpees", "type": "physical", "defaultQuantity": 5, "defaultSets": 2, "coins": 15 },
+    { "id": "lunges", "name": "Lunges", "type": "physical", "defaultQuantity": 6, "defaultSets": 2, "coins": 11 },
+    { "id": "jumping_jacks", "name": "Jumping Jacks", "type": "physical", "defaultQuantity": 12, "defaultSets": 2, "coins": 9 },
+    { "id": "mountain_climbers", "name": "Mountain Climbers", "type": "physical", "defaultQuantity": 10, "defaultSets": 2, "coins": 10 },
+    { "id": "situps", "name": "Situps", "type": "physical", "defaultQuantity": 6, "defaultSets": 2, "coins": 10 },
+    { "id": "high_knees", "name": "High Knees", "type": "physical", "defaultQuantity": 16, "defaultSets": 2, "coins": 9 },
+    { "id": "rest", "name": "Rest Day", "type": "rest", "defaultQuantity": 0, "defaultSets": 0, "coins": 0 },
+
+    { "id": "read_book", "name": "Read Book (pages)", "type": "mental", "defaultQuantity": 5, "defaultSets": 1, "coins": 8 },
+    { "id": "meditate", "name": "Meditate (min)", "type": "mental", "defaultQuantity": 5, "defaultSets": 1, "coins": 10 },
+    { "id": "journal", "name": "Journal (sentences)", "type": "mental", "defaultQuantity": 3, "defaultSets": 1, "coins": 7 },
+    { "id": "puzzle", "name": "Solve Puzzle", "type": "mental", "defaultQuantity": 1, "defaultSets": 1, "coins": 9 },
+    { "id": "language", "name": "Language Practice (min)", "type": "mental", "defaultQuantity": 5, "defaultSets": 1, "coins": 8 },
+    { "id": "gratitude", "name": "Gratitude List", "type": "mental", "defaultQuantity": 3, "defaultSets": 1, "coins": 7 },
+    { "id": "visualization", "name": "Visualization (min)", "type": "mental", "defaultQuantity": 3, "defaultSets": 1, "coins": 7 },
+    { "id": "breathing", "name": "Breathing Exercise (min)", "type": "mental", "defaultQuantity": 3, "defaultSets": 1, "coins": 7 }
+  ],
+  "plan": [
+    {
+      "day": "Mon",
+      "tasks": [
+        { "id": "pushups", "quantity": 4, "sets": 2, "time": 2 },
+        { "id": "plank", "quantity": 20, "sets": 2, "time": 1 },
+        { "id": "squats", "quantity": 8, "sets": 2, "time": 2 },
+        { "id": "jumping_jacks", "quantity": 12, "sets": 2, "time": 1 },
+        { "id": "read_book", "quantity": 5, "sets": 1, "time": 5 },
+        { "id": "meditate", "quantity": 5, "sets": 1, "time": 5 },
+        { "id": "puzzle", "quantity": 1, "sets": 1, "time": 5 }
+      ]
+    },
+    {
+      "day": "Tue",
+      "tasks": [
+        { "id": "burpees", "quantity": 5, "sets": 2, "time": 2 },
+        { "id": "lunges", "quantity": 6, "sets": 2, "time": 2 },
+        { "id": "situps", "quantity": 6, "sets": 2, "time": 2 },
+        { "id": "high_knees", "quantity": 16, "sets": 2, "time": 1 },
+        { "id": "journal", "quantity": 3, "sets": 1, "time": 5 },
+        { "id": "language", "quantity": 5, "sets": 1, "time": 5 },
+        { "id": "gratitude", "quantity": 3, "sets": 1, "time": 5 }
+      ]
+    },
+    {
+      "day": "Wed",
+      "tasks": [
+        { "id": "plank", "quantity": 30, "sets": 2, "time": 1 },
+        { "id": "squats", "quantity": 8, "sets": 2, "time": 2 },
+        { "id": "mountain_climbers", "quantity": 10, "sets": 2, "time": 1 },
+        { "id": "jumping_jacks", "quantity": 12, "sets": 2, "time": 1 },
+        { "id": "read_book", "quantity": 5, "sets": 1, "time": 5 },
+        { "id": "visualization", "quantity": 3, "sets": 1, "time": 5 },
+        { "id": "breathing", "quantity": 3, "sets": 1, "time": 5 }
+      ]
+    },
+    {
+      "day": "Thu",
+      "tasks": [
+        { "id": "pushups", "quantity": 4, "sets": 2, "time": 2 },
+        { "id": "situps", "quantity": 6, "sets": 2, "time": 2 },
+        { "id": "lunges", "quantity": 6, "sets": 2, "time": 2 },
+        { "id": "high_knees", "quantity": 16, "sets": 2, "time": 1 },
+        { "id": "meditate", "quantity": 5, "sets": 1, "time": 5 },
+        { "id": "puzzle", "quantity": 1, "sets": 1, "time": 5 },
+        { "id": "journal", "quantity": 3, "sets": 1, "time": 5 }
+      ]
+    },
+    {
+      "day": "Fri",
+      "tasks": [
+        { "id": "burpees", "quantity": 6, "sets": 2, "time": 2 },
+        { "id": "pushups", "quantity": 4, "sets": 2, "time": 2 },
+        { "id": "mountain_climbers", "quantity": 10, "sets": 2, "time": 1 },
+        { "id": "jumping_jacks", "quantity": 12, "sets": 2, "time": 1 },
+        { "id": "language", "quantity": 5, "sets": 1, "time": 5 },
+        { "id": "gratitude", "quantity": 3, "sets": 1, "time": 5 },
+        { "id": "visualization", "quantity": 3, "sets": 1, "time": 5 }
+      ]
+    },
+    {
+      "day": "Sat",
+      "tasks": [
+        { "id": "lunges", "quantity": 6, "sets": 2, "time": 2 },
+        { "id": "situps", "quantity": 6, "sets": 2, "time": 2 },
+        { "id": "pushups", "quantity": 4, "sets": 2, "time": 2 },
+        { "id": "plank", "quantity": 20, "sets": 2, "time": 1 },
+        { "id": "read_book", "quantity": 5, "sets": 1, "time": 5 },
+        { "id": "meditate", "quantity": 5, "sets": 1, "time": 5 },
+        { "id": "breathing", "quantity": 3, "sets": 1, "time": 5 }
+      ]
+    },
+    {
+      "day": "Sun",
+      "tasks": [
+        { "id": "rest" },
+        { "id": "meditate", "quantity": 5, "sets": 1, "time": 5 },
+        { "id": "gratitude", "quantity": 3, "sets": 1, "time": 5 }
+      ]
+    }
+  ]
+}

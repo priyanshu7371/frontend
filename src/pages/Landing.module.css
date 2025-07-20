@@ -1,0 +1,184 @@
+/* 
+  Landing.module.css - Minimalist, Professional, and Attractive Design
+*/
+
+/* Define a color palette and font for easy theming */
+:root {
+  --color-background: #ffffff;
+  --color-background-alt: #f7f9fc;
+  --color-primary: #0052cc;      /* Professional Blue */
+  --color-primary-darker: #0041a3;
+  --color-accent: #4cceac;       /* A modern, cool teal */
+  --color-text-dark: #172b4d;
+  --color-text-light: #5e6c84;
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Animation Keyframes */
+@keyframes animatedGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Import the Google Font (add to index.html for best practice) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* Main container for the page */
+.container {
+  font-family: var(--font-main);
+  background-color: var(--color-background);
+  color: var(--color-text-dark);
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 80vh;
+  padding: 60px 20px;
+  color: var(--color-background);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-darker), #172b4d);
+  background-size: 200% 200%;
+  animation: animatedGradient 15s ease infinite;
+}
+
+.heroContent {
+  max-width: 750px;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem); /* Responsive font size */
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 600px;
+  margin: 0 auto 32px auto;
+}
+
+/* Main Call-to-Action Button */
+.ctaButton {
+  background-image: linear-gradient(45deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  color: var(--color-background);
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: var(--font-main);
+  border: none;
+  border-radius: 8px;
+  padding: 16px 32px;
+  box-shadow: 0 4px 15px rgba(0, 82, 204, 0.25);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 82, 204, 0.4);
+}
+
+/* General Section Styling */
+.featuresSection, .ctaSection {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.ctaSection {
+  background-color: var(--color-background-alt);
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-wrap: balance;
+}
+
+/* Features Section */
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  max-width: 1100px;
+  margin: 60px auto 0 auto;
+  text-align: left;
+}
+
+.featureCard {
+  background: var(--color-background);
+  padding: 40px 32px;
+  border-radius: 12px;
+  border: 1px solid #dfe1e6;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Stagger the feature card animations */
+.featureCard:nth-child(1) { animation-delay: 0.2s; }
+.featureCard:nth-child(2) { animation-delay: 0.4s; }
+.featureCard:nth-child(3) { animation-delay: 0.6s; }
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(23, 43, 77, 0.1);
+  border-color: var(--color-primary);
+}
+
+.featureIcon {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+  border-radius: 50%;
+  background-color: var(--color-background-alt);
+  color: var(--color-primary);
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(23, 43, 77, 0.05);
+}
+
+.featureCard h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.featureCard p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-light);
+}
+
+/* Final CTA Section */
+.ctaContent {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Footer */
+.footer {
+  padding: 32px 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  border-top: 1px solid #dfe1e6;
+}
