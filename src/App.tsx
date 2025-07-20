@@ -38,10 +38,30 @@ function App() {
               </Route>
             </Routes>
           </div>
-          <footer style={{ textAlign: 'center', fontSize: 13, color: '#b4bcd0', padding: '12px 0 8px 0', letterSpacing: 0.2, background: 'none', userSelect: 'none' }}>
-            created with love <span role="img" aria-label="love">❤️</span> by Priyanshu
-          </footer>
+          {/* Overlay floating text, not a full section */}
+          <div style={{
+            position: 'fixed',
+            left: '50%',
+            bottom: 20,
+            transform: 'translateX(-50%)',
+            background: 'rgba(32,38,60,0.82)',
+            color: '#fff',
+            fontSize: 15,
+            fontFamily: 'Inter, Arial, sans-serif',
+            padding: '6px 18px',
+            borderRadius: 18,
+            boxShadow: '0 2px 12px #4f8cff22',
+            letterSpacing: 0.2,
+            zIndex: 9999,
+            userSelect: 'none',
+            pointerEvents: 'none',
+            opacity: 0.92
+          }}>
+            created with <span role="img" aria-label="love">❤️</span> by Priyanshu
+          </div>
         </div>
+        {/* Google Fonts for groovy font */}
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
       </Router>
     </GameProvider>
   );
