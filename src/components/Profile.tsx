@@ -1,15 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useGame } from '../context/GameContext';
+
+const NAME_KEY = 'user_name';
 
 const Profile: React.FC = () => {
   const { character, gold, setCharacterName } = useGame();
   const [editing, setEditing] = useState(false);
   const [nameInput, setNameInput] = useState(character.name || '');
+  const [nameSet, setNameSet] = useState(false);
+
+  useEffect(() => {
+    // Check if name is already set in localStorage
+    const storedName = localStorage.getItem(NAME_KEY);
+    if (storedName && storedName.trim() !== '') {
+      setCharacterName(storedName);
+      setNameSet(true);
+    }
+  }, [setCharacterName]);
 
   const handleSave = (e: React.FormEvent) => {
     e.preventDefault();
-    setCharacterName(nameInput.trim() || 'Player');
+    const sanitized = nameInput.trim() || 'Player';
+    setCharacterName(sanitized);
+    localStorage.setItem(NAME_KEY, sanitized);
     setEditing(false);
+    setNameSet(true);
   };
 
   return (
@@ -82,14 +97,17 @@ const Profile: React.FC = () => {
         ) : (
           <>
             <span style={{ fontWeight: 800, color: '#dbeafe', fontSize: 15, letterSpacing: 0.3 }}>{character.name || 'Player'}</span>
-            <button
-              onClick={() => { setEditing(true); setNameInput(character.name || ''); }}
-              style={{ background: 'none', border: 'none', color: '#7faaff', cursor: 'pointer', fontSize: 15, marginLeft: 2, padding: 0 }}
-              title="Edit Name"
-              tabIndex={0}
-            >
-              ✏️
-            </button>
+            {/* Show edit icon only if name is not set */}
+            {!nameSet && (
+              <button
+                onClick={() => { setEditing(true); setNameInput(character.name || ''); }}
+                style={{ background: 'none', border: 'none', color: '#7faaff', cursor: 'pointer', fontSize: 15, marginLeft: 2, padding: 0 }}
+                title="Edit Name"
+                tabIndex={0}
+              >
+                ✏️
+              </button>
+            )}
           </>
         )}
       </span>
